@@ -1,8 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     font-size: 14px;
+    font-family: "Figtree", sans-serif;
 }
 
 html,
@@ -28,10 +37,14 @@ section ul.buttons {
     position: relative;
     margin-top: 2rem;
     list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     /* gap: 1rem; */
     height: 5rem;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 
@@ -46,6 +59,8 @@ section ul.buttons .btn {
     line-height: 1.25;
     letter-spacing: 3px;
     font-weight: bold;
+    -webkit-transition: color .3s ease-in-out;
+    -o-transition: color .3s ease-in-out;
     transition: color .3s ease-in-out;
     text-align: center;
 }
@@ -60,11 +75,17 @@ section ul.buttons .btn {
     background-color: #c5c5c5 !important;
     border-radius: 1.25rem;
     position: absolute;
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    -o-transition: transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 .move {
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%);
 }
 
 
@@ -80,9 +101,17 @@ section ul.buttons .btn {
 .box {
     position: absolute;
     inset: 0;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
-    transform: translateY(10rem);
+    -webkit-transform: translateY(10rem);
+        -ms-transform: translateY(10rem);
+            transform: translateY(10rem);
+    -webkit-transition: opacity .3s ease-in-out, -webkit-transform .3s ease-in-out;
+    transition: opacity .3s ease-in-out, -webkit-transform .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out, transform .3s ease-in-out;
     transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
     opacity: 0;
     visibility: hidden;
     z-index: 1;
@@ -91,7 +120,9 @@ section ul.buttons .btn {
 }
 
 .visible {
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
     opacity: 1;
     visibility: visible;
     z-index: 2;
@@ -143,6 +174,8 @@ section ul.buttons .btn {
     background-color: transparent;
     border-radius: 1.25rem;
     border: 2px solid black;
+    -webkit-transition: background-color .1s ease-in-out, border .1s ease-in-out;
+    -o-transition: background-color .1s ease-in-out, border .1s ease-in-out;
     transition: background-color .1s ease-in-out, border .1s ease-in-out;
     max-width: 300px;
 }
@@ -187,9 +220,16 @@ section ul.buttons .btn {
     }
 
     .box {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
     section h1{
         font-size: 10rem;
@@ -197,4 +237,17 @@ section ul.buttons .btn {
     .box h2{
         font-size: 3rem;
     }
+}.example {
+    display: -ms-grid;
+    display: grid;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
+    background: -o-linear-gradient(top, white, black);
+    background: linear-gradient(to bottom, white, black);
 }

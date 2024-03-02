@@ -95,6 +95,7 @@ const TwoEqn = () => {
           </p>
         </li>
       </ul>
+      
       <button className="submit" onClick={evalueate}>
         Submit
       </button>
