@@ -1,6 +1,8 @@
 import "./App.css";
+import Cubic from "./Components/Cubic";
 import Navbar from "./Components/Navbar";
 import PolarRect from "./Components/PolarRect";
+import Quadratic from "./Components/Quadratic";
 import RectPolar from "./Components/RectPolar";
 import Statistics from "./Components/Statistics";
 import ThreeEqn from "./Components/ThreeEqn";
@@ -41,6 +43,10 @@ function App() {
             <Route path="polarRect" element={<PolarRect/>}></Route>
             <Route path="rectPolar" element={<RectPolar/>}></Route>
             <Route path="statistics" element={<Statistics/>}></Route>
+            <Route path="quadratic" element={<Quadratic/>}></Route>
+            <Route path="cubic" element={<Cubic/>}></Route>
+
+
           </Routes>
       </BrowserRouter>
     </>
