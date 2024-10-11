@@ -1,49 +1,48 @@
 import "./App.css";
+import Navbar from "./Components/Navbar";
+import PolarRect from "./Components/PolarRect";
+import RectPolar from "./Components/RectPolar";
+import Statistics from "./Components/Statistics";
 import ThreeEqn from "./Components/ThreeEqn";
 import TwoEqn from "./Components/TwoEqn";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
-  const handle_click = (e) => {
-    let move = document.getElementById("movable");
-    let btn = document.getElementsByClassName("btn");
-    btn[0].classList.remove("btn_active");
-    btn[1].classList.remove("btn_active");
-    if ( e === "btn_1"){
-      document.getElementById(e).classList.add("btn_active");
-      move.classList.remove("move")
-      document.getElementById('twoVar').classList.add('visible')
-      document.getElementById('threeVar').classList.remove('visible')
-    }
-    else{
-      document.getElementById(e).classList.add("btn_active");
-      move.classList.add("move")
-      document.getElementById('twoVar').classList.remove('visible')
-      document.getElementById('threeVar').classList.add('visible')
-    }
-  };
+  const toggleClick = ()=>{
+    console.log("click");
+    const bars = document.querySelector("#bars");
+    const nav = document.querySelector("#navbar");
+
+    nav.classList.toggle('show');
+    bars.classList.toggle('active');
+  }
 
   return (
     <>
-      <section>
-        <h1>Calculator</h1>
-        <ul className="buttons">
-          <div id="movable"></div>
-          <li
-            id="btn_1"
-            className="btn btn_active"
-            onClick={() => handle_click("btn_1")}
-          >
-            Two Variables
-          </li>
-          <li id="btn_2" className="btn" onClick={() => handle_click("btn_2")}>
-            Three Variables
-          </li>
-        </ul>
-      </section>
-      <section className="boxes">
-        <TwoEqn />
-        <ThreeEqn />
-      </section>
+      <BrowserRouter>
+        <section>
+          <div className="bars" id="bars" onClick={toggleClick}>
+            <div className="bar" id="bar1"></div>
+            <div className="bar" id="bar2"></div>
+            <div className="bar" id="bar3"></div>
+          </div>
+          <Navbar/>
+          <h1>Calculator</h1>
+
+        </section>
+          <Routes>
+            <Route path="/" element={<TwoEqn />}></Route>
+            <Route path="threeEqn" element={<ThreeEqn />}></Route>
+            <Route path="polarRect" element={<PolarRect/>}></Route>
+            <Route path="rectPolar" element={<RectPolar/>}></Route>
+            <Route path="statistics" element={<Statistics/>}></Route>
+          </Routes>
+      </BrowserRouter>
     </>
   );
 }

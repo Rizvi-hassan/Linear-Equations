@@ -5,11 +5,17 @@
 * Browsers: last 4 version
 */
 
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+
 * {
     padding: 0;
     margin: 0;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     font-size: 14px;
     font-family: "Figtree", sans-serif;
 }
@@ -33,108 +39,44 @@ section h1 {
     text-align: center;
 }
 
-section ul.buttons {
-    position: relative;
-    margin-top: 2rem;
-    list-style: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /* gap: 1rem; */
-    height: 5rem;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-}
 
-
-section ul.buttons .btn {
-    position: relative;
-    width: 50%;
-    padding: 1rem;
-    border: none;
-    background-color: transparent;
-    color: slategrey;
-    font-size: 20px;
-    line-height: 1.25;
-    letter-spacing: 3px;
-    font-weight: bold;
-    -webkit-transition: color .3s ease-in-out;
-    -o-transition: color .3s ease-in-out;
-    transition: color .3s ease-in-out;
-    text-align: center;
-}
-
-#movable {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
-    background-color: #c5c5c5 !important;
-    border-radius: 1.25rem;
-    position: absolute;
-    -webkit-transition: -webkit-transform .3s ease-in-out;
-    transition: -webkit-transform .3s ease-in-out;
-    -o-transition: transform .3s ease-in-out;
-    transition: transform .3s ease-in-out;
-    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
-}
-
-.move {
-    -webkit-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-            transform: translateX(100%);
-}
-
-
-.btn_active {
-    color: black !important;
-}
-
-.boxes {
-    position: relative;
-    padding: 1rem;
-}
 
 .box {
-    position: absolute;
-    inset: 0;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    -webkit-transform: translateY(10rem);
-        -ms-transform: translateY(10rem);
-            transform: translateY(10rem);
     -webkit-transition: opacity .3s ease-in-out, -webkit-transform .3s ease-in-out;
     transition: opacity .3s ease-in-out, -webkit-transform .3s ease-in-out;
     -o-transition: opacity .3s ease-in-out, transform .3s ease-in-out;
     transition: opacity .3s ease-in-out, transform .3s ease-in-out;
     transition: opacity .3s ease-in-out, transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
-    opacity: 0;
-    visibility: hidden;
+    /* opacity: 0; */
+    /* visibility: hidden; */
     z-index: 1;
 
 
 }
 
-.visible {
+/* .visible {
     -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
             transform: translateY(0);
     opacity: 1;
     visibility: visible;
     z-index: 2;
-}
+} */
 
 .box h2 {
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     line-height: 1.25;
     margin: 1rem 0;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.box h3{
+    font-size: 18px;
 }
 
 .box ul {
@@ -149,6 +91,12 @@ section ul.buttons .btn {
     width: 4rem;
     margin: 2rem 1rem;
     padding: 0 0.2rem;
+}
+
+.large-inp{
+    padding: 0.5rem;
+    width: 23rem;
+    height: 5rem;
 }
 
 .box ul li {
@@ -202,6 +150,96 @@ section ul.buttons .btn {
     text-decoration: underline;
 }
 
+.example {
+    display: -ms-grid;
+    display: grid;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
+    background: -o-linear-gradient(top, white, black);
+    background: linear-gradient(to bottom, white, black);
+}
+
+.navbar {
+    position: fixed;
+    background: wheat;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 0vh;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+.menu{
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.show{ height: 100vh;}
+
+li {
+    list-style: none;
+}
+
+.links {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #676767;
+    transition: color .3s ease, letter-spacing .3s ease;
+}
+
+
+
+.links:hover,
+.focus {
+    color: black;
+    letter-spacing: 1px;
+}
+
+.bars {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    /* border: 2px solid; */
+    display: block;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+
+}
+
+.bar {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 18%;
+    margin-bottom: 15%;
+    background-color: black;
+    border-radius: 1rem;
+    transition: transform .3s ease, scale .3s ease, width  .3s ease;
+}
+
+
+.bars:hover #bar2{width: 100%;}
+#bar2{width: 120%;}
+.bars:hover #bar3{width: 100%;}
+#bar3{width: 80%;}
+
+.active #bar1{width: 100%; transform: translateY(179%) rotate(45deg);}
+.active #bar2{width: 100%; scale: 0;}
+.active #bar3{width: 100%; transform: translateY(-185%) rotate(-45deg);}
+
+
 @media screen and (min-width: 560px) {
     * {
         font-size: 14px;
@@ -225,29 +263,31 @@ section ul.buttons .btn {
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
-    section h1{
-        font-size: 10rem;
+
+    section h1 {
+        font-size: 7rem;
     }
-    .box h2{
+
+    .box h2 {
         font-size: 3rem;
     }
-}.example {
-    display: -ms-grid;
-    display: grid;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
-    background: -o-linear-gradient(top, white, black);
-    background: linear-gradient(to bottom, white, black);
+
+    .bars {
+        width: 3rem;
+        height: 3rem;
+        top: 3rem;
+        left: 3rem;
+        cursor: pointer;
+    }
+
+    .links{
+        cursor: pointer;
+    }
+
 }

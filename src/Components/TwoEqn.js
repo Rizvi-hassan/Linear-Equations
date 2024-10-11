@@ -35,7 +35,7 @@ const TwoEqn = () => {
   };
 
   return (
-    <div className="box visible" id="twoVar">
+    <div className="box visible">
       <h2>Linear Equations in two variables</h2>
       <ul>
         <li>

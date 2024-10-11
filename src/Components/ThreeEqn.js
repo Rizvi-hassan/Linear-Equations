@@ -70,10 +70,10 @@ const ThreeEqn = () => {
       c3: 0,
       d3: 0,
     });
-    setRes({x: 0, y: 0, z: 0});
+    setRes({ x: 0, y: 0, z: 0 });
   };
   return (
-    <div className="box" id="threeVar">
+    <div className="box" >
       <h2>Linear Equations in three variables</h2>
 
       <ul>
