@@ -35,7 +35,7 @@ const Navbar = () => {
             </li>
             <li>
                   <Link className='links ' to="statistics" onClick={handleClick}>
-                    Statistics- mean, variance, standard deviation
+                    Mean, variance, standard deviation
                   </Link>
             </li>
         </ul>
